@@ -5,8 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ControlDeEstacionamiento"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="Control de estacionamiento" Height="400" Width="620">
     <Grid>
         
+        <!--<Image Source="C:\Users\USER\Source\Repos\ControlDeEstacionamiento\ControlDeEstacionamiento\img\parkeo-logo.png" Width="100"/>-->
+
     </Grid>
 </Window>
