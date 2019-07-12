@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ControlDeEstacionamiento"
         mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
         TextElement.FontSize="13"
@@ -12,10 +13,38 @@
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        Title="Control de estacionamiento" Height="400" Width="620">
-    <Grid>
-        
-        <!--<Image Source="C:\Users\USER\Source\Repos\ControlDeEstacionamiento\ControlDeEstacionamiento\img\parkeo-logo.png" Width="100"/>-->
+        Title="Control de estacionamiento" Height="768" Width="1024" WindowStyle="None" >
 
-    </Grid>
+
+    <StackPanel Background="White">
+        <!-- Barra superior-->
+        <!-- La barra superior lleva una sombra en la parte inferior-->
+        <!--https://social.msdn.microsoft.com/Forums/vstudio/en-US/8a4c7bcc-0c73-43b3-b2a3-b0012040e731/drop-shadow-for-wpf-windows?forum=wpf-->
+        <Canvas>
+            <Border  Width="1024" Height="60" Background="#FF4483CE">
+                <Border.BitmapEffect>
+                    <DropShadowBitmapEffect Color="Black" Direction="320" 
+                                        ShadowDepth="10" Opacity=".5" Softness="9" />
+                </Border.BitmapEffect>
+                <Grid Margin="0,0,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="80"/>
+                        <ColumnDefinition Width="80"/>
+                        <ColumnDefinition Width="80"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Column="0" Content="Bienvenido a su control de estacionamiento" FontSize="24" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <!--Botones de control-->
+                    <Button Grid.Column="3" Background="{x:Null}" BorderBrush="{x:Null}">
+                        <Image Source="C:\Users\USER\Source\Repos\ControlDeEstacionamiento\ControlDeEstacionamiento\img\cerrar.png" Margin="0,0,5,0" />
+                    </Button>
+                </Grid>
+            </Border>
+        </Canvas>
+
+        <!--Parte Interior-->
+        <Separator Height="1" Width="1024" Margin="0,150,0,0" />
+
+    </StackPanel>
 </Window>

@@ -104,5 +104,12 @@
   <ItemGroup>
     <Resource Include="img\parkeo-logo.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\car-multiple.png" />
+    <Resource Include="img\file-document-box-multiple %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\cerrar.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -24,5 +24,10 @@ namespace ControlDeEstacionamiento
         {
             InitializeComponent();
         }
+
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("hola mundo");
+        }
     }
 }
