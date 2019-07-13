@@ -25,9 +25,19 @@ namespace ControlDeEstacionamiento
             InitializeComponent();
         }
 
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        private void BtnCerrar_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("hola mundo");
+            Application.Current.Shutdown();
+        }
+
+        private void BtnAceptar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Ingresar_Selected(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }
