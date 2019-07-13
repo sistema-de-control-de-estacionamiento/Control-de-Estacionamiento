@@ -13,10 +13,14 @@
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
+        
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
         Title="Control de estacionamiento" Height="768" Width="1024" WindowStyle="None" >
 
 
-    <StackPanel Background="White">
+
+    <StackPanel Background="White" Name="ventanaPrincipal"  MouseDown="VentanaPrincipal_MouseDown">
         <!-- Barra superior-->
         <!-- La barra superior lleva una sombra en la parte inferior-->
         <!--https://social.msdn.microsoft.com/Forums/vstudio/en-US/8a4c7bcc-0c73-43b3-b2a3-b0012040e731/drop-shadow-for-wpf-windows?forum=wpf-->
@@ -70,7 +74,7 @@
             <ListViewItem  Width="395" Height="60">
                 <StackPanel Orientation="Horizontal" Width="340" Height="40">
                     <materialDesign:PackIcon Kind="CarMultiple" Height="28" Width="28" Margin="10,0,10,0" Foreground="#fbcd00" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <TextBlock Text="Vehículos ingrsados" FontSize="28" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#fbcd00" />
+                    <TextBlock Text="Vehículos ingresados" FontSize="28" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#fbcd00" />
                 </StackPanel>
             </ListViewItem>
 
@@ -83,14 +87,13 @@
             </ListViewItem>
         </ListView>
         
-
         <!--Parte Interior-->
         <Separator Height="1" Width="1024" Margin="0,15,0,20" />
 
         <!--Stack Panel en donde se llamarán todas las clases hijas -->
-        <StackPanel HorizontalAlignment="Left" Height="594" Width="1024" Margin="0,0,-8,0">
+        <Grid HorizontalAlignment="Left" Height="585" Width="1024" Margin="0,0,-8,0" Name="ContenedorPrincipal">
             
-        </StackPanel>
+        </Grid>
        
 
 

@@ -18,11 +18,18 @@ namespace ControlDeEstacionamiento
     /// <summary>
     /// Lógica de interacción para MainWindow.xaml
     /// </summary>
+    
+        
     public partial class MainWindow : Window
     {
+        
+        private ingresarVehiculo IngresarVehiculo; 
         public MainWindow()
         {
             InitializeComponent();
+            IngresarVehiculo = new ingresarVehiculo();
+            
+
         }
 
         private void BtnCerrar_Click(object sender, RoutedEventArgs e)
@@ -35,7 +42,26 @@ namespace ControlDeEstacionamiento
 
         }
 
+
+        // Declarar el UserControl
+
+        
+
         private void Ingresar_Selected(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                ContenedorPrincipal.Children.Add(IngresarVehiculo);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+            
+        }
+
+        private void VentanaPrincipal_MouseDown(object sender, MouseButtonEventArgs e)
         {
             
         }
