@@ -118,5 +118,8 @@
   <ItemGroup>
     <Resource Include="img\cerrar.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="SQL\Base de Datos Estacionamiento.sql" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
