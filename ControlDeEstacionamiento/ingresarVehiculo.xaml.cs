@@ -23,6 +23,8 @@ namespace ControlDeEstacionamiento
     /// </summary>
     public partial class ingresarVehiculo : UserControl
     {
+        SqlConnection sqlConnection = new SqlConnection(@"server = (local)\sqlexpress;
+            integrated security = true; database = Estacionamiento");
         public ingresarVehiculo()
         {
             InitializeComponent();
@@ -32,9 +34,9 @@ namespace ControlDeEstacionamiento
         {
             try
             {
-                string query = @"INSERT INTO Vehiculo.Vehiculo
+                string query = @"INSERT INTO Vehiculo.VehiculoIngresado
                                  VALUES (@numPlaca, @descripcion)";
-                SqlCommand sqlCommand = new SqlCommand(query, sqlconnection);
+                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
 
                 sqlConnection.Open();
 
@@ -49,7 +51,7 @@ namespace ControlDeEstacionamiento
             }
             finally
             {
-                sqlconnection.Close();
+                sqlConnection.Close();
             }
 
         }
