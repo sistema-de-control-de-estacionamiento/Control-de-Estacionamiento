@@ -20,7 +20,7 @@
 
 
 
-    <StackPanel Background="White" Name="ventanaPrincipal"  MouseDown="VentanaPrincipal_MouseDown">
+    <StackPanel Background="White" Name="ventanaPrincipal"  MouseLeftButtonDown="VentanaPrincipal_MouseLeftButtonDown">
         <!-- Barra superior-->
         <!-- La barra superior lleva una sombra en la parte inferior-->
         <!--https://social.msdn.microsoft.com/Forums/vstudio/en-US/8a4c7bcc-0c73-43b3-b2a3-b0012040e731/drop-shadow-for-wpf-windows?forum=wpf-->
@@ -70,19 +70,19 @@
                     <TextBlock Text="Ingresar un vehículo" FontSize="28" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#fbcd00"  />
                 </StackPanel>
             </ListViewItem>
-            <!--Vehículos ingresados-->
-            <ListViewItem  Width="395" Height="60">
+            <!--Salida de Vehículos-->
+            <ListViewItem  Width="395" Height="60" x:Name="Salida" Selected="Salida_Selected">
                 <StackPanel Orientation="Horizontal" Width="340" Height="40">
                     <materialDesign:PackIcon Kind="CarMultiple" Height="28" Width="28" Margin="10,0,10,0" Foreground="#fbcd00" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <TextBlock Text="Vehículos ingresados" FontSize="28" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#fbcd00" />
+                    <TextBlock Text=" Salida de vehículos" FontSize="28" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#fbcd00" />
                 </StackPanel>
             </ListViewItem>
 
             <!--Reportes-->
-            <ListViewItem  Width="190" Height="60">
+            <ListViewItem  Width="190" Height="60" Name="reporte" Selected="Reporte_Selected">
                 <StackPanel Orientation="Horizontal" Width="190" Height="40">
                     <materialDesign:PackIcon Kind="FileDocumentBoxMultiple" Height="28" Width="28" Margin="10,0,10,0" Foreground="#fbcd00" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <TextBlock Text="Reportes" FontSize="28" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#fbcd00" />
+                    <TextBlock Text="Reportes" FontSize="28" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#fbcd00"/>
                 </StackPanel>
             </ListViewItem>
         </ListView>
@@ -91,13 +91,6 @@
         <Separator Height="1" Width="1024" Margin="0,15,0,20" />
 
         <!--Stack Panel en donde se llamarán todas las clases hijas -->
-        <Grid HorizontalAlignment="Left" Height="585" Width="1024" Margin="0,0,-8,0" Name="ContenedorPrincipal">
-            
-        </Grid>
-       
-
-
-
-
+        <Grid HorizontalAlignment="Left" Height="585" Width="1024" Margin="0,0,-8,0" Name="ContenedorPrincipal"/>
     </StackPanel>
 </Window>

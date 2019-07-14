@@ -22,14 +22,26 @@ namespace ControlDeEstacionamiento
         
     public partial class MainWindow : Window
     {
-        
-        private ingresarVehiculo IngresarVehiculo; 
+        // Declarar las ventanas hijas
+        private ingresarVehiculo IngresarVehiculo;
+        private listarVehiculos ListarVehiculos;
+        private cobroVehiculo CobroVehiculo;
+        private Reporte ReporteCobros;
         public MainWindow()
         {
             InitializeComponent();
-            IngresarVehiculo = new ingresarVehiculo();
-            
 
+            IngresarVehiculo = new ingresarVehiculo();
+            ListarVehiculos = new listarVehiculos();
+            CobroVehiculo = new cobroVehiculo();
+            ReporteCobros = new Reporte();
+
+        }
+
+        // Lograr que la ventana se pueda mover
+        private void VentanaPrincipal_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
         }
 
         private void BtnCerrar_Click(object sender, RoutedEventArgs e)
@@ -42,28 +54,61 @@ namespace ControlDeEstacionamiento
 
         }
 
-
-        // Declarar el UserControl
-
-        
-
+        // Ventana Hija para ingresar un vehículo al estacionamiento
         private void Ingresar_Selected(object sender, RoutedEventArgs e)
         {
             try
             {
                 ContenedorPrincipal.Children.Add(IngresarVehiculo);
+                ContenedorPrincipal.Children.Remove(ListarVehiculos);
+                ContenedorPrincipal.Children.Remove(CobroVehiculo);
+                ContenedorPrincipal.Children.Remove(ReporteCobros);
+
             }
             catch (Exception ex)
             {
 
                 MessageBox.Show(ex.ToString());
             }
-            
+           
         }
 
-        private void VentanaPrincipal_MouseDown(object sender, MouseButtonEventArgs e)
+        // Ventana Hija para hacer el cobro de un veh;iculo ingresado
+        private void Salida_Selected(object sender, RoutedEventArgs e)
         {
-            
+            try
+            {
+                ContenedorPrincipal.Children.Add(CobroVehiculo);
+                ContenedorPrincipal.Children.Remove(IngresarVehiculo);
+                ContenedorPrincipal.Children.Remove(ListarVehiculos);
+                ContenedorPrincipal.Children.Remove(ReporteCobros);
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+
+        }
+
+        private void Reporte_Selected(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                ContenedorPrincipal.Children.Add(ReporteCobros);
+                ContenedorPrincipal.Children.Remove(IngresarVehiculo);
+                ContenedorPrincipal.Children.Remove(ListarVehiculos);
+                ContenedorPrincipal.Children.Remove(CobroVehiculo);
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
+
+    
 }
