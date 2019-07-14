@@ -31,7 +31,7 @@ CREATE TABLE Vehiculo.TipoVehiculo(
 GO
 
 CREATE TABLE Vehiculo.VehiculoIngresado(
-	id INT CONSTRAINT PK_vehiculo_placa NOT NULL 
+	id INT IDENTITY (1,1) CONSTRAINT PK_vehiculo_placa NOT NULL 
 	PRIMARY KEY CLUSTERED,
 	numeroPlaca NVARCHAR(7) NOT NULL,
 	horaDeIngreso DATETIME NOT NULL,
@@ -75,3 +75,6 @@ VALUES ('Turismo'),
 	   ('Rastra'),
 	   ('Motocicleta')
 GO
+
+--SELECT * FROM Vehiculo.TipoVehiculo
+--GO
