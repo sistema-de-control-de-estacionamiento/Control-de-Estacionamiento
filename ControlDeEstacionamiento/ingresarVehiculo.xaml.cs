@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Configuration;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace ControlDeEstacionamiento
 {
@@ -20,9 +23,37 @@ namespace ControlDeEstacionamiento
     /// </summary>
     public partial class ingresarVehiculo : UserControl
     {
+        SqlConnection sqlConnection = new SqlConnection(@"server = (local)\sqlexpress;
+            integrated security = true; database = Estacionamiento");
         public ingresarVehiculo()
         {
             InitializeComponent();
+        }
+
+        private void BtnAceptar_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string query = @"INSERT INTO Vehiculo.VehiculoIngresado
+                                 VALUES (@numPlaca, @descripcion)";
+                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+
+                sqlConnection.Open();
+
+                sqlCommand.Parameters.AddWithValue("@numPlaca", txtnumeroPlaca);
+                sqlCommand.Parameters.AddWithValue("@descripcion", txtDescripcion);
+
+                sqlCommand.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                sqlConnection.Close();
+            }
+
         }
     }
 }

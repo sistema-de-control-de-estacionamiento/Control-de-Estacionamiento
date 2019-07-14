@@ -3,7 +3,7 @@
 	Catedratico: Ing. Hector Sabillon
 	Integrantes: Jackeline Varela
 				 Jorge Sanchez
-	Nombre del proyeco: Estacionamiento
+	Nombre del proyeco: Control-De-Estacionamiento
 	Fecha: 5/7/2019
 */
 
@@ -52,7 +52,7 @@ GO
 ALTER TABLE Vehiculo.VehiculoIngresado
 	ADD CONSTRAINT
 		FK_Vehiculo_VehiculoIngresado$EsUn$Tipo_Vehiculo
-		FOREIGN KEY (idTipoVehiculo) REFERENCES Vehiculo.TipoVehiculo(tipo)
+		FOREIGN KEY (idTipoVehiculo) REFERENCES Vehiculo.TipoVehiculo(Id)
 		ON UPDATE NO ACTION
 		ON DELETE NO ACTION
 GO
@@ -63,4 +63,15 @@ ALTER TABLE Vehiculo.Detalle
 		FOREIGN KEY (idVehiculo) REFERENCES Vehiculo.VehiculoIngresado(id)
 		ON UPDATE NO ACTION
 		ON DELETE NO ACTION
+GO
+
+--Agregar los tipos de vehiculo
+INSERT INTO Vehiculo.TipoVehiculo (tipo)
+VALUES ('Turismo'),
+	   ('Pick-up'),
+	   ('Camioneta'),
+	   ('Camión'),
+	   ('Bus'),
+	   ('Rastra'),
+	   ('Motocicleta')
 GO
