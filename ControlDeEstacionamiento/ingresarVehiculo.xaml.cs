@@ -28,7 +28,6 @@ namespace ControlDeEstacionamiento
         public ingresarVehiculo()
         {
             InitializeComponent();
-            //cmbTipoVehiculo.ItemsSource = typeof(Colors).GetProperties();
         }
 
         private void BtnAceptar_Click(object sender, RoutedEventArgs e)

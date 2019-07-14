@@ -143,5 +143,8 @@
   <ItemGroup>
     <Content Include="SQL\Base de Datos Estacionamiento.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Documentación\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
