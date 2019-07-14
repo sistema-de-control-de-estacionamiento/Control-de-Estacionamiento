@@ -28,6 +28,7 @@ namespace ControlDeEstacionamiento
         public ingresarVehiculo()
         {
             InitializeComponent();
+            //cmbTipoVehiculo.ItemsSource = typeof(Colors).GetProperties();
         }
 
         private void BtnAceptar_Click(object sender, RoutedEventArgs e)
@@ -35,7 +36,7 @@ namespace ControlDeEstacionamiento
             try
             {
                 string query = @"INSERT INTO Vehiculo.VehiculoIngresado
-                                 VALUES (@numPlaca, @descripcion)";
+                                 VALUES (@numPlaca, @descripcion,)";
                 SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
 
                 sqlConnection.Open();

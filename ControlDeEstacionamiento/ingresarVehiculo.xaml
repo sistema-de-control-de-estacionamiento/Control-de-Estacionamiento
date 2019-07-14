@@ -32,7 +32,16 @@
 
         <StackPanel Grid.Column="1" Grid.Row="0" Margin="10,50,0,0">
             <Label Content="Tipo de Vehículo:" FontSize="24" Width="460" HorizontalAlignment="Left" />
-            <ComboBox Name="cmbTipoVehiculo" FontSize="24" BorderBrush="#FFFBCD00" Width="460" HorizontalAlignment="Left" />
+            <ComboBox Name="cmbTipoVehiculo" FontSize="24" BorderBrush="#FFFBCD00" Width="460" HorizontalAlignment="Left">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Rectangle Fill="{Binding Name}" Width="32" Height="32" Margin="5"/>
+                            <TextBlock Text="{Binding Name}" FontSize="32"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
         </StackPanel>
 
         <StackPanel Grid.Column="0" Grid.Row="1" Margin="10,50,0,0">
