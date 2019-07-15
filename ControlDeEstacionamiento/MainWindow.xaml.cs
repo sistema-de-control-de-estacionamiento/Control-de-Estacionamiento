@@ -25,7 +25,6 @@ namespace ControlDeEstacionamiento
         // Declarar las ventanas hijas
         private ingresarVehiculo IngresarVehiculo;
         private listarVehiculos ListarVehiculos;
-        private cobroVehiculo CobroVehiculo;
         private Reporte ReporteCobros;
 
         public MainWindow()
@@ -34,7 +33,6 @@ namespace ControlDeEstacionamiento
 
             IngresarVehiculo = new ingresarVehiculo();
             ListarVehiculos = new listarVehiculos();
-            CobroVehiculo = new cobroVehiculo();
             ReporteCobros = new Reporte();
 
         }
@@ -62,7 +60,6 @@ namespace ControlDeEstacionamiento
             {
                 ContenedorPrincipal.Children.Add(IngresarVehiculo);
                 ContenedorPrincipal.Children.Remove(ListarVehiculos);
-                ContenedorPrincipal.Children.Remove(CobroVehiculo);
                 ContenedorPrincipal.Children.Remove(ReporteCobros);
 
             }
@@ -84,7 +81,6 @@ namespace ControlDeEstacionamiento
                 listarVehiculos ListarVehiculos1 = new listarVehiculos();
                 ContenedorPrincipal.Children.Add(ListarVehiculos1);
                 ContenedorPrincipal.Children.Remove(IngresarVehiculo);
-                ContenedorPrincipal.Children.Remove(CobroVehiculo);
                 ContenedorPrincipal.Children.Remove(ReporteCobros);
 
             }
@@ -103,8 +99,6 @@ namespace ControlDeEstacionamiento
                 ContenedorPrincipal.Children.Add(ReporteCobros);
                 ContenedorPrincipal.Children.Remove(IngresarVehiculo);
                 ContenedorPrincipal.Children.Remove(ListarVehiculos);
-                ContenedorPrincipal.Children.Remove(CobroVehiculo);
-
             }
             catch (Exception ex)
             {

@@ -1,0 +1,4 @@
+AMARILLO:	#fbcd00
+AZUL:		#4483ce
+GRIS:		#d9d9d9
+ANARANJADO:	#f29f4e

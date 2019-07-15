@@ -62,9 +62,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="cobroVehiculo.xaml.cs">
-      <DependentUpon>cobroVehiculo.xaml</DependentUpon>
-    </Compile>
     <Compile Include="EstacionamientoDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -73,10 +70,6 @@
     <Compile Include="Reporte.xaml.cs">
       <DependentUpon>Reporte.xaml</DependentUpon>
     </Compile>
-    <Page Include="cobroVehiculo.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="ingresarVehiculo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -127,6 +120,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="AdobeXD\DiseñoPantallaPrincipal.xd" />
     <None Include="EstacionamientoDataSet.xsc">
       <DependentUpon>EstacionamientoDataSet.xsd</DependentUpon>
     </None>
@@ -158,7 +152,11 @@
     <Resource Include="img\cerrar.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="PaletaDeColores\paleta.txt" />
     <Content Include="SQL\Base de Datos Estacionamiento.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Manual\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

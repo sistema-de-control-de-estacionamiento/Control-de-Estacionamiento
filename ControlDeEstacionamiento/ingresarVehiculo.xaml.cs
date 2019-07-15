@@ -90,5 +90,10 @@ namespace ControlDeEstacionamiento
             }
 
         }
+
+        private void BtnCancelar_Click(object sender, RoutedEventArgs e)
+        {
+           
+        }
     }
 }
