@@ -27,6 +27,7 @@ namespace ControlDeEstacionamiento
         private listarVehiculos ListarVehiculos;
         private cobroVehiculo CobroVehiculo;
         private Reporte ReporteCobros;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -76,16 +77,19 @@ namespace ControlDeEstacionamiento
         // Ventana Hija para hacer el cobro de un veh;iculo ingresado
         private void Salida_Selected(object sender, RoutedEventArgs e)
         {
+            
+
             try
             {
-                ContenedorPrincipal.Children.Add(CobroVehiculo);
+                listarVehiculos ListarVehiculos1 = new listarVehiculos();
+                ContenedorPrincipal.Children.Add(ListarVehiculos1);
                 ContenedorPrincipal.Children.Remove(IngresarVehiculo);
-                ContenedorPrincipal.Children.Remove(ListarVehiculos);
+                ContenedorPrincipal.Children.Remove(CobroVehiculo);
                 ContenedorPrincipal.Children.Remove(ReporteCobros);
 
             }
             catch (Exception ex)
-            {
+            { 
 
                 MessageBox.Show(ex.ToString());
             }

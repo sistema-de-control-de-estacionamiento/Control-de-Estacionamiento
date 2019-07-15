@@ -31,20 +31,54 @@ namespace ControlDeEstacionamiento
             //cmbTipoVehiculo.ItemsSource = typeof(Colors).GetProperties();
         }
 
+
         private void BtnAceptar_Click(object sender, RoutedEventArgs e)
         {
+
+            int x = 0;
+            if (cmbTipoVehiculo.Text == "Turismo")
+            {
+                x = 1;
+            }
+            if (cmbTipoVehiculo.Text == "Pick-up")
+            {
+                x = 2;
+            }
+            else if(cmbTipoVehiculo.Text == "Camioneta")
+            {
+                x = 3;
+            }
+            else if (cmbTipoVehiculo.Text == "Camión")
+            {
+                x = 4;
+            }
+            else if (cmbTipoVehiculo.Text == "Bus")
+            {
+                x = 5;
+            }
+            else if (cmbTipoVehiculo.Text == "Rastra")
+            {
+                x = 6;
+            }
+            else if (cmbTipoVehiculo.Text == "Motocicleta")
+            {
+                x = 7;
+            }
+
             try
             {
                 string query = @"INSERT INTO Vehiculo.VehiculoIngresado
-                                 VALUES (@numPlaca, @descripcion,)";
+                                 VALUES (@numPlaca, @idTipoVehiculo, @estado, @descripcion)";
                 SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
 
                 sqlConnection.Open();
 
-                sqlCommand.Parameters.AddWithValue("@numPlaca", txtnumeroPlaca);
-                sqlCommand.Parameters.AddWithValue("@descripcion", txtDescripcion);
+                sqlCommand.Parameters.AddWithValue("@numPlaca", txtnumeroPlaca.Text);
+                sqlCommand.Parameters.AddWithValue("@idTipoVehiculo", x);
+                sqlCommand.Parameters.AddWithValue("@estado", 0);
+                sqlCommand.Parameters.AddWithValue("@descripcion", txtDescripcion.Text);
 
-                sqlCommand.ExecuteScalar();
+                sqlCommand.ExecuteNonQuery();
             }
             catch (Exception ex)
             {

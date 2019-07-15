@@ -3,7 +3,7 @@
 	Catedratico: Ing. Hector Sabillon
 	Integrantes: Jackeline Varela
 				 Jorge Sanchez
-	Nombre del proyeco: Control-De-Estacionamiento
+	Nombre del proyeco: Estacionamiento
 	Fecha: 5/7/2019
 */
 
@@ -13,8 +13,9 @@ GO
 --Creacion de la base de datos y sus tablas
 IF NOT EXISTS(SELECT * FROM sys.databases WHERE name = 'Estacionamiento')
 	BEGIN
-		CREATE DATABASE Estacionamiento
+		CREATE DATABASE Estacionamiento;
 	END
+GO
 
 USE Estacionamiento
 GO
@@ -31,20 +32,21 @@ CREATE TABLE Vehiculo.TipoVehiculo(
 GO
 
 CREATE TABLE Vehiculo.VehiculoIngresado(
-	id INT IDENTITY (1,1) CONSTRAINT PK_vehiculo_placa NOT NULL 
+	numeroPlaca NVARCHAR(7) NOT NULL 
+	 CONSTRAINT PK_vehiculo_placa 
 	PRIMARY KEY CLUSTERED,
-	numeroPlaca NVARCHAR(7) NOT NULL,
-	horaDeIngreso DATETIME NOT NULL,
-	idTipoVehiculo INT NOT NULL, 
+	idTipoVehiculo INT NOT NULL,
+	estado BIT NOT NULL,
 	descripcion NVARCHAR(200)
 )
 GO
 
 CREATE TABLE Vehiculo.Detalle(
 	Id int identity (1,1) NOT NULL,
+	horaDeIngreso DATETIME NOT NULL,
 	horaSalida DATETIME,
-	totalCobro decimal NOT NULL,
-	idVehiculo INT NOT NULL
+	totalCobro decimal,
+	numeroPlacaVehiculo NVARCHAR(7) NOT NULL
 )
 GO
 
@@ -52,7 +54,7 @@ GO
 ALTER TABLE Vehiculo.VehiculoIngresado
 	ADD CONSTRAINT
 		FK_Vehiculo_VehiculoIngresado$EsUn$Tipo_Vehiculo
-		FOREIGN KEY (idTipoVehiculo) REFERENCES Vehiculo.TipoVehiculo(Id)
+		FOREIGN KEY (idTipoVehiculo) REFERENCES Vehiculo.TipoVehiculo(id)
 		ON UPDATE NO ACTION
 		ON DELETE NO ACTION
 GO
@@ -60,10 +62,11 @@ GO
 ALTER TABLE Vehiculo.Detalle
 	ADD CONSTRAINT 
 		FK_Vehiculo_SalidaVehiculo$TieneUna$Vehiculo_Ingresado_Placa
-		FOREIGN KEY (idVehiculo) REFERENCES Vehiculo.VehiculoIngresado(id)
+		FOREIGN KEY (numeroPlacaVehiculo) REFERENCES Vehiculo.VehiculoIngresado(numeroPlaca)
 		ON UPDATE NO ACTION
 		ON DELETE NO ACTION
 GO
+
 
 --Agregar los tipos de vehiculo
 INSERT INTO Vehiculo.TipoVehiculo (tipo)
@@ -76,5 +79,3 @@ VALUES ('Turismo'),
 	   ('Motocicleta')
 GO
 
---SELECT * FROM Vehiculo.TipoVehiculo
---GO

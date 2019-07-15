@@ -20,7 +20,7 @@
         <Separator Height="1" Width="1024" Margin="0,0,0,10" Background="#FFFBCD00"/>
         <StackPanel Orientation="Horizontal">
             <Label Content="Ingrese la fecha que decea consultar:" FontSize="24"/>
-            <DatePicker Name="dateReporte" FontSize="24" BorderBrush="#FFFBCD00" Width="460"  HorizontalAlignment="Left" Margin="0,0,0,10" />
+            <DatePicker Name="dateReporte" FontSize="24" BorderBrush="#FFFBCD00" Width="460"  HorizontalAlignment="Left" Margin="0,0,0,10" SelectedDateChanged="DateReporte_SelectedDateChanged" />
         </StackPanel>
 
         <ListBox x:Name="lstReporte" Width="900" Height="380" Background="#d9d9d9" Opacity="20" Margin="0,0,0,10"/>

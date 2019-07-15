@@ -31,32 +31,49 @@
         </StackPanel>
 
         <StackPanel Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Margin="60,10,0,0" Orientation="Horizontal" VerticalAlignment="Top">
-            <ListBox x:Name="lstVehiculos" Width="900" Height="400" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+            <DataGrid x:Name="lstVehiculos" Height="400" Width="900" SelectionChanged="LstVehiculos_SelectionChanged" >
+                
+                
+            </DataGrid>
         </StackPanel>
 
-        <Button Grid.Column="0" Grid.Row="2" Foreground="White" FontSize="36"
+        <Button Grid.Column="0" Grid.Row="2" Foreground="White" FontSize="36" Name="btnIngreso" Click="BtnIngreso_Click"
             Style="{StaticResource MaterialDesignRaisedLightButton}"
             Width="330"
             Height="80"
-            ToolTip="Resource name: MaterialDesignRaisedLightButton" Background="#FF4483CE" BorderBrush="{x:Null}">
+            ToolTip="Resource name: MaterialDesignRaisedLightButton" Background="#FF4483CE" BorderBrush="{x:Null}" Margin="10,10,172,10">
 
             <StackPanel Orientation="Horizontal">
-                <materialDesign:PackIcon Kind="Check" Height="36" Width="36" VerticalAlignment="Center"/>
-                <Label Content="Salida de Vehículo" FontSize="30" Foreground="White"/>
+                <materialDesign:PackIcon Kind="Check" Height="30" Width="24" VerticalAlignment="Center"/>
+                <Label Content="Ingreso" FontSize="30" Foreground="White"/>
             </StackPanel>
         </Button>
 
-        <Button Grid.Column="1" Grid.Row="2" Foreground="White" FontSize="36" Name="btnSalidaVehiculo" Click="BtnSalidaVehiculo_Click"
+
+        <Button Grid.Column="0" Grid.Row="2" Foreground="White" FontSize="36" x:Name="btnSalida" Click="BtnSalida_Click"
             Style="{StaticResource MaterialDesignRaisedLightButton}"
             Width="330"
             Height="80"
-            ToolTip="Resource name: MaterialDesignRaisedLightButton" Background="#FF4483CE" BorderBrush="{x:Null}">
+            ToolTip="Resource name: MaterialDesignRaisedLightButton" Background="#FF4483CE" BorderBrush="{x:Null}" Margin="346,10,348,10" Grid.ColumnSpan="2">
+
+            <StackPanel Orientation="Horizontal">
+                <materialDesign:PackIcon Kind="Check" Height="36" Width="36" VerticalAlignment="Center"/>
+                <Label Content="Salida" FontSize="30" Foreground="White"/>
+            </StackPanel>
+        </Button>
+
+        <Button Grid.Column="1" Grid.Row="2" Foreground="White" FontSize="36" Name="btnCancelar" Click="BtnCancelar_Click"
+            Style="{StaticResource MaterialDesignRaisedLightButton}"
+            Width="330"
+            Height="80"
+            ToolTip="Resource name: MaterialDesignRaisedLightButton" Background="#FF4483CE" BorderBrush="{x:Null}" Margin="172,10,10,10">
 
             <StackPanel Orientation="Horizontal">
                 <materialDesign:PackIcon Kind="WindowClose" Height="36" Width="36" VerticalAlignment="Center"/>
                 <Label Content=" Cancelar" FontSize="30" Foreground="White"/>
             </StackPanel>
         </Button>
+        
 
     </Grid>
 </UserControl>

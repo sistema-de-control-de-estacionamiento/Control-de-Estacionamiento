@@ -33,6 +33,13 @@
         <StackPanel Grid.Column="1" Grid.Row="0" Margin="10,50,0,0">
             <Label Content="Tipo de Vehículo:" FontSize="24" Width="460" HorizontalAlignment="Left" />
             <ComboBox Name="cmbTipoVehiculo" FontSize="24" BorderBrush="#FFFBCD00" Width="460" HorizontalAlignment="Left">
+                <ComboBoxItem Content="Turismo"/>
+                <ComboBoxItem Content="Pick-up"/>
+                <ComboBoxItem Content="Camioneta"/>
+                <ComboBoxItem Content="Camión"/>
+                <ComboBoxItem Content="Bus"/>
+                <ComboBoxItem Content="Rastra"/>
+                <ComboBoxItem Content="Motocicleta"/>
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
@@ -47,11 +54,6 @@
         <StackPanel Grid.Column="0" Grid.Row="1" Margin="10,50,0,0">
             <Label Content="Descripción:" FontSize="24" Width="500" HorizontalAlignment="Left" />
             <TextBox Name="txtDescripcion" FontSize="24" BorderBrush="#FFFBCD00" Width="460" HorizontalAlignment="Left" />
-        </StackPanel>
-
-        <StackPanel Grid.Column="1" Grid.Row="1" Margin="10,50,0,0">
-            <Label Content="Hora de entrada:" FontSize="24" Width="460" HorizontalAlignment="Left" />
-            <DatePicker Name="dateIngreso" FontSize="24" BorderBrush="#FFFBCD00" Width="460"  HorizontalAlignment="Left" />
         </StackPanel>
 
         <Button Name="btnAceptar" Grid.Column="0" Grid.Row="2" Foreground="White" FontSize="36"
