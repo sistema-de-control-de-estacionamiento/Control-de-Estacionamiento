@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="ControlDeEstacionamiento.Reporte"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ControlDeEstacionamiento"
+            xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             TextElement.FontWeight="Regular"
+             TextElement.FontSize="13"
+             TextOptions.TextFormattingMode="Ideal"
+             TextOptions.TextRenderingMode="Auto"
+             Background="{DynamicResource MaterialDesignPaper}"
+             FontFamily="{DynamicResource MaterialDesignFont}"
+             mc:Ignorable="d" 
+             d:DesignHeight="585" d:DesignWidth="1024">
+    <StackPanel Background="White">
+        <Label Content="Ingresos totales" HorizontalAlignment="Center" FontSize="36" Foreground="#4483ce" Margin="0,10,0,5"/>
+        <!--Parte Interior-->
+        <Separator Height="1" Width="1024" Margin="0,0,0,10" Background="#FFFBCD00"/>
+        <StackPanel Orientation="Horizontal">
+            <Label Content="Ingrese la fecha que decea consultar:" FontSize="24"/>
+            <DatePicker Name="dateReporte" FontSize="24" BorderBrush="#FFFBCD00" Width="460"  HorizontalAlignment="Left" Margin="0,0,0,10" SelectedDateChanged="DateReporte_SelectedDateChanged" />
+        </StackPanel>
+
+        <DataGrid x:Name="lstReporte" Width="900" Height="380" Background="#d9d9d9" Opacity="20" Margin="0,0,0,10"/>
+
+        <Button Foreground="White" FontSize="36" Name="Salir"
+            Style="{StaticResource MaterialDesignRaisedLightButton}"
+            Width="200"
+            Height="60"
+            ToolTip="Resource name: MaterialDesignRaisedLightButton" Background="#FF4483CE" BorderBrush="{x:Null}">
+
+            <StackPanel Orientation="Horizontal">
+                <materialDesign:PackIcon Kind="WindowClose" Height="36" Width="36" VerticalAlignment="Center"/>
+                <Label Content="Salir" FontSize="30" Foreground="White"/>
+            </StackPanel>
+        </Button>
+
+    </StackPanel>
+</UserControl>

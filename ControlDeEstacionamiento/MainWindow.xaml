@@ -5,8 +5,92 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ControlDeEstacionamiento"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
         
-    </Grid>
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Title="Control de estacionamiento" Height="768" Width="1024" WindowStyle="None" >
+
+
+
+    <StackPanel Background="White" Name="ventanaPrincipal"  MouseLeftButtonDown="VentanaPrincipal_MouseLeftButtonDown">
+        <!-- Barra superior-->
+        <!-- La barra superior lleva una sombra en la parte inferior-->
+        <!--https://social.msdn.microsoft.com/Forums/vstudio/en-US/8a4c7bcc-0c73-43b3-b2a3-b0012040e731/drop-shadow-for-wpf-windows?forum=wpf-->
+        <Canvas>
+            <Border  Width="1024" Height="60" Background="#FF4483CE">
+                <Border.BitmapEffect>
+                    <DropShadowBitmapEffect Color="Black" Direction="320" 
+                                        ShadowDepth="10" Opacity=".5" Softness="9" />
+                </Border.BitmapEffect>
+                <Grid Margin="0,0,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="80"/>
+                        <ColumnDefinition Width="80"/>
+                        <ColumnDefinition Width="80"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Column="0" Content="Bienvenido a su control de estacionamiento" FontSize="24" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <!--Botones de control-->
+                    <Button Grid.Column="3" Background="{x:Null}" BorderBrush="{x:Null}" Name="btnCerrar" Click="BtnCerrar_Click">
+                        <Image Source="C:\Users\USER\Source\Repos\ControlDeEstacionamiento\ControlDeEstacionamiento\img\cerrar.png" Margin="0,0,5,0" />
+                    </Button>
+                </Grid>
+            </Border>
+        </Canvas>
+        <!--HorizontalAlignment="Left" Height="33" Width="211" Margin="5,10,0,0" Name="btnAceptar"-->
+        <!--Botones para llamar cada ventana hija-->
+        
+        <!--Esta manera de coloar el listview hace que muestre los intems de manera horizontal-->
+        <!--https://rstopup.com/wpf-listview-con-disposicion-horizontal-de-los-elementos.html-->
+        <ListView  HorizontalAlignment="Left" Height="60" Width="1024" Margin="0,90,0,0">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Width="{Binding (FrameworkElement.ActualWidth), 
+            RelativeSource={RelativeSource AncestorType=ScrollContentPresenter}}"
+            ItemWidth="{Binding (ListView.View).ItemWidth, 
+            RelativeSource={RelativeSource AncestorType=ListView}}"
+            MinWidth="{Binding ItemWidth, RelativeSource={RelativeSource Self}}"
+            ItemHeight="{Binding (ListView.View).ItemHeight, 
+            RelativeSource={RelativeSource AncestorType=ListView}}" />
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <!--Ingresar un vehículo-->
+            <ListViewItem Width="395" Height="60" x:Name="Ingresar" Selected="Ingresar_Selected">
+                <StackPanel Orientation="Horizontal" Width="340" Height="40">
+                    <materialDesign:PackIcon Kind="AddCircle" Height="28" Width="28" Margin="10,0,10,0" Foreground="#fbcd00" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <TextBlock Text="Agregar un vehículo" FontSize="28" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#fbcd00"  />
+                </StackPanel>
+            </ListViewItem>
+            <!--Salida de Vehículos-->
+            <ListViewItem  Width="395" Height="60" x:Name="Salida" Selected="Salida_Selected">
+                <StackPanel Orientation="Horizontal" Width="340" Height="40">
+                    <materialDesign:PackIcon Kind="CarMultiple" Height="28" Width="28" Margin="10,0,10,0" Foreground="#fbcd00" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <TextBlock Text=" Salida de vehículos" FontSize="28" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#fbcd00" />
+                </StackPanel>
+            </ListViewItem>
+
+            <!--Reportes-->
+            <ListViewItem  Width="190" Height="60" Name="reporte" Selected="Reporte_Selected">
+                <StackPanel Orientation="Horizontal" Width="190" Height="40">
+                    <materialDesign:PackIcon Kind="FileDocumentBoxMultiple" Height="28" Width="28" Margin="10,0,10,0" Foreground="#fbcd00" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <TextBlock Text="Reportes" FontSize="28" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#fbcd00"/>
+                </StackPanel>
+            </ListViewItem>
+        </ListView>
+        
+        <!--Parte Interior-->
+        <Separator Height="1" Width="1024" Margin="0,15,0,20" />
+
+        <!--Stack Panel en donde se llamarán todas las clases hijas -->
+        <Grid HorizontalAlignment="Left" Height="585" Width="1024" Margin="0,0,-8,0" Name="ContenedorPrincipal"/>
+    </StackPanel>
 </Window>
